@@ -1,5 +1,4 @@
 import "./Nav.scss"
-import { ReactComponent as ReactLogo } from "../../assets/img/logo_big.svg"
 
 const Nav = () => {
 	return (
@@ -9,8 +8,10 @@ const Nav = () => {
 			</div>
 			<div className="Nav__right">
 				<lu className="Nav__right__list">
-					<li>Tienda</li>
-					<li>Tienda</li>
+					<li>Colección</li>
+					<li>Catálogo</li>
+					<li>Marcas</li>
+					<li>Idioma</li>
 				</lu>
 			</div>
 		</nav>
