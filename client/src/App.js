@@ -3,32 +3,32 @@ import { useEffect, useState } from "react"
 // COMPONENTS
 import Nav from "./components/Nav"
 import Card from "./components/Card"
+import Navigation from "./routes/Navigation"
 //SERVICES
 import getAllPhones from "./services/getAllPhones"
 // OTHERS
 import "./App.scss"
 
 function App() {
+	// STATES
 	const [catalogue, setCatalogue] = useState([])
 
+	// FUNCTIONS
+	async function getData() {
+		const phones = await getAllPhones()
+		setCatalogue(phones)
+	}
+
+	// USE EFFECTS
 	useEffect(() => {
-		async function getData() {
-			const phones = await getAllPhones()
-			setCatalogue(phones)
-		}
 		getData()
 	}, [])
 
 	if (!catalogue) return null
 	return (
-		<div className="App">
-			<Nav />
-			<div className="container">
-				{catalogue.map((phone) => (
-					<Card key={phone.id} {...phone} />
-				))}
-			</div>
-		</div>
+		<>
+			<Navigation />
+		</>
 	)
 }
 
