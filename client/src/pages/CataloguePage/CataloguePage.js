@@ -11,11 +11,14 @@ import "./CataloguePage.scss"
 const CataloguePage = () => {
 	// STATES
 	const [catalogue, setCatalogue] = useState([])
+	const [loading, setLoading] = useState(false)
 
 	// FUNCTIONS
 	async function getData() {
+		setLoading(true)
 		const phones = await getAllPhones()
 		setCatalogue(phones)
+		setLoading(false)
 	}
 
 	// USE EFFECTS
@@ -23,7 +26,7 @@ const CataloguePage = () => {
 		getData()
 	}, [])
 
-	if (!catalogue) return null
+	if (loading) return <div className="container"></div>
 	return (
 		<div className="App">
 			<div className="container">
