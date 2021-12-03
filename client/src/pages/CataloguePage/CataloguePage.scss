@@ -13,6 +13,7 @@
   display: grid;
   grid-template-columns: repeat(4,1fr);
   row-gap: 25px;
+  min-height: 80vh;
   
   @include respond(big-desktop) {
     width: 80%;
@@ -34,6 +35,8 @@
   grid-template-columns: repeat(2,1fr);
   
   }
+
+
   
   
 }
