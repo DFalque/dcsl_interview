@@ -1,4 +1,5 @@
 @import "../../sass/abstracts/mixins";
+@import "../../sass/abstracts/variables";
 
 .Nav{
 	width: 100%;
@@ -8,6 +9,7 @@
 	justify-content: space-around;
 	align-items: center;
 	margin-bottom: 20px;
+	background-color: $color-secondary-light;
 
 	&__left{
 		width: 20%;
