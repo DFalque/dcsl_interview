@@ -1,0 +1,145 @@
+@import "../../sass//abstracts/variables";
+@import "../../sass//abstracts/mixins";
+
+.Home{
+	position: relative;
+	z-index: 0;
+	padding: 50px;
+	width: 100%;
+	height: 80vh;
+	background-color: $color-secondary-light;
+	overflow: hidden;
+
+
+	&__shape{
+		z-index: 2;
+		position: absolute;
+		border-top-left-radius: 50% ;
+		border-top-right-radius: 50% ;
+		border-bottom-left-radius: 50% ;
+		border-bottom-right-radius: 50% ;
+
+	}
+
+	&__text{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		position: absolute;
+		top: 10%;
+		left: 25%;
+		width: 55%;
+		height: 400px;
+		line-height: 1.9;
+
+
+		@include respond(phone) {
+			top: 0;
+			left: 0;
+			width: 80%;
+			line-height: 1.2;
+			margin: 0 20px;
+		  }
+
+		
+
+		&__button{
+			z-index: 10;
+			display: inline;
+			text-decoration: none;
+			padding: 10px 15px;
+			background-color: $color-primary-dark ;
+			color: $color-primary-light;
+			font-weight: bold;
+			border-radius: 10px;
+			font-size: 18px;
+		}
+	}
+}
+
+
+
+  .shape2 {
+	z-index: 2;
+	position: absolute;
+	border-top-left-radius: 50% ;
+	border-top-right-radius: 50% ;
+	border-bottom-left-radius: 50% ;
+	border-bottom-right-radius: 50% ;
+  }
+
+
+  h1{
+	color: $color-black_blue;
+	font-size: 6.2rem;
+	z-index: 10;
+}
+
+.left{
+	top: 0;
+	left: 15%;
+	width: 350px;
+	height: 350px;
+	background-color: $color-primary-light;
+
+	@include respond(tab-land) {
+		top: 0;
+		left: 15%;
+		width: 250px;
+		height: 250px;
+	  }
+}
+
+.right{
+	top: 35%;
+	left: 50%;
+	width: 300px;
+	height: 300px;
+	background-color: #F397D1;
+
+	@include respond(tab-land) {
+		top: 50%;
+		left: 60%;
+		width: 200px;
+		height: 200px;
+	  }
+
+	  @include respond(phone) {
+		top: 50%;
+		left: 60%;
+		width: 200px;
+		height: 200px;
+	  }
+}
+
+img{
+	z-index: 3;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+
+	@include respond(tab-port) {
+		top: 30%;
+		left: 40%;
+		width: 400px;
+		height: 400px;
+	  }
+	  
+	@include respond(tab-land) {
+	  top: 60%;
+	  left: 60%;
+	  width: 200px;
+	  height: 200px;
+	}
+	@include respond(phone) {
+		top: 60%;
+		left: 60%;
+		width: 200px;
+		height: 200px;
+	  }
+
+}
+  
+
