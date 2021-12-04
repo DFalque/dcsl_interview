@@ -10,7 +10,7 @@ const Nav = () => {
 				</Link>
 			</div>
 			<div className="Nav__right">
-				<lu className="Nav__right__list">
+				<ul className="Nav__right__list">
 					<li>Colección</li>
 					<Link
 						to="/catalogue"
@@ -20,7 +20,7 @@ const Nav = () => {
 					</Link>
 					<li>Marcas</li>
 					<li>Idioma</li>
-				</lu>
+				</ul>
 			</div>
 		</nav>
 	)
