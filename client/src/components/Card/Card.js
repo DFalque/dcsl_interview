@@ -1,17 +1,34 @@
+import { Link } from "react-router-dom"
 import "./Card.scss"
 
 const Cards = (props) => {
-	const { name, description, manufacturer, price, ram, screen } = props
+	const {
+		_id,
+		name,
+		description,
+		manufacturer,
+		price,
+		ram,
+		screen,
+		imageFileName,
+	} = props
 	console.log(props)
 	return (
-		<div className="Card">
-			<div className="Card__image"></div>
+		<Link
+			to={`/phone/${_id}`}
+			className="Card"
+			style={{ textDecoration: "none" }}
+		>
+			<div
+				className="Card__image"
+				style={{ backgroundImage: `url(${imageFileName})` }}
+			></div>
 			<div className="Card__info">
 				<div>
 					<p className="Card__info--brand">{manufacturer}</p>
 				</div>
 				<p className="Card__info--name">{name}</p>
-				<p className="Card__info--phone"> {description}</p>
+				<p className="paragraph__small"> {description}</p>
 				<div className="Card__info__price">
 					<p className="Card__info__price--button">Comprar</p>
 					<p className="Card__info__price--cost">
@@ -20,7 +37,7 @@ const Cards = (props) => {
 					</p>
 				</div>
 			</div>
-		</div>
+		</Link>
 	)
 }
 
