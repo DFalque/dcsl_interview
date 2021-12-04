@@ -13,7 +13,7 @@ const Nav = () => {
 				<ul className="Nav__right__list">
 					<li>Colección</li>
 					<Link
-						to="/catalogue"
+						to="/catalog"
 						style={{ textDecoration: "none", color: "black" }}
 					>
 						<li>Catálogo</li>
