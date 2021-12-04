@@ -1,7 +1,19 @@
+// LIBRARIES
 const express = require("express")
+const mongoose = require("mongoose")
+require("dotenv").config({ path: ".env" })
+var cors = require("cors")
 const app = express()
 const port = 3000
 
+//FUNCTIONS
+const { getAllPhones } = require("./controller/phone")
+
+// MIDDLEWARE
+app.use((req, res, next) => {
+	cors()
+	next()
+})
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*")
 	res.header(
@@ -11,109 +23,52 @@ app.use(function (req, res, next) {
 	next()
 })
 
+app.use(express.json())
+
+//DATABASE
+
+mongoose.connect(
+	process.env.BBDD,
+	{
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	},
+	(err, _) => {
+		if (err) {
+			console.log(err)
+		} else {
+			console.log("Conectado a la base de datos")
+		}
+	}
+)
+
+// GETS
+
 app.get("/", (req, res) => {
 	res.send("Hello World!")
 })
 
-app.get("/phones", (req, res) => {
-	res.send([
-		{
-			id: 0,
-			name: "iPhone 12",
-			manufacturer: "Apple",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-		{
-			id: 1,
-			name: "iPhone 7",
-			manufacturer: "Samsung",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-		{
-			id: 2,
-			name: "iPhone 7",
-			manufacturer: "Google",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-		{
-			id: 3,
-			name: "iPhone 7",
-			manufacturer: "Xiaomi",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-		{
-			id: 4,
-			name: "iPhone 7",
-			manufacturer: "Samsung",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-		{
-			id: 5,
-			name: "iPhone 7",
-			manufacturer: "Google",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-		{
-			id: 6,
-			name: "iPhone 7",
-			manufacturer: "Huawei",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-		{
-			id: 7,
-			name: "iPhone 7",
-			manufacturer: "Apple",
-			description: "lorem ipsum dolor sit amet consectetur.",
-			color: "black",
-			price: 769,
-			imageFileName: "IPhone_7.png",
-			screen: "4,7 inch IPS",
-			processor: "A10 Fusion",
-			ram: 2,
-		},
-	])
+app.get("/phones", async (req, res) => {
+	const data = await getAllPhones()
+	console.log(data)
+	res.send(data)
+})
+
+app.get("/getphone/", (req, res) => {
+	const { id } = req.query
+	console.log(id)
+	res.send("esto es un telefono")
+})
+
+// POSTS
+
+app.post("/addphone", (req, res) => {
+	console.log(req.body)
+	res.send("esto es un telefono")
+})
+
+app.post("/addphones", (req, res) => {
+	res.send("esto es un telefono")
 })
 
 app.listen(port, () => {
