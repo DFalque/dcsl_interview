@@ -1,6 +1,6 @@
 import "./Home.scss"
 import mainLogo from "../../assets/img/Blogger.png"
-import Link from "react-router-dom/Link"
+import { Link } from "react-router-dom"
 
 function Home(props) {
 	return (
