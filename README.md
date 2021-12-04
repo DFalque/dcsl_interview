@@ -1,4 +1,11 @@
 
+
+## MongoDB & AWS S3
+
+
+## CI/CD
+
+Añadir integració continuaa con Heroku y Netlify
 ## Libraries
 
 He decidido no utilizar la utilización de react-router-dom@6 debido a que ha recibido unos cambios importantes
