@@ -31,7 +31,7 @@ const CataloguePage = () => {
 		<div className="App">
 			<div className="container">
 				{catalogue.map((phone) => (
-					<Card key={phone.id} {...phone} />
+					<Card key={phone._id} {...phone} />
 				))}
 			</div>
 		</div>
