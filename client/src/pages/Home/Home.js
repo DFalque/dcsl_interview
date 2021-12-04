@@ -8,11 +8,11 @@ function Home(props) {
 			<section className="Home__shape left"></section>
 			<div className="Home__text">
 				<h1>Welcome to your favorite phone catalog</h1>
-				<Link to="/catalogue">
-					<Link to="/catalogue" className="Home__text__button">
+				<div>
+					<Link to="/catalog" className="Home__text__button">
 						See Catalogue
 					</Link>
-				</Link>
+				</div>
 			</div>
 			<img src={mainLogo} />
 			<section className="Home__shape right"></section>
