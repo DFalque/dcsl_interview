@@ -7,7 +7,7 @@ const app = express()
 const port = 3000
 
 //FUNCTIONS
-const { getAllPhones } = require("./controller/phone")
+const { getAllPhones, findPhone } = require("./controller/phone")
 
 // MIDDLEWARE
 app.use((req, res, next) => {
@@ -50,20 +50,21 @@ app.get("/", (req, res) => {
 
 app.get("/phones", async (req, res) => {
 	const data = await getAllPhones()
-	console.log(data)
 	res.send(data)
 })
 
-app.get("/getphone/", (req, res) => {
+app.get("/getphone/", async (req, res) => {
 	const { id } = req.query
 	console.log(id)
-	res.send("esto es un telefono")
+	const data = await findPhone(id)
+	console.log(data)
+	res.send(data)
 })
 
 // POSTS
 
 app.post("/addphone", (req, res) => {
-	console.log(req.body)
+	//console.log(req.body)
 	res.send("esto es un telefono")
 })
 

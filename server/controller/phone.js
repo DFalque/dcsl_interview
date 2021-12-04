@@ -8,7 +8,7 @@ async function getAllPhones() {
 }
 
 async function findPhone(id) {
-	const phone = await Phone.findOne({ id })
+	const phone = await Phone.findOne({ _id: id })
 	if (!phone) throw new Error("Phone not Found")
 	return phone
 }
