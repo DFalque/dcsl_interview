@@ -1,0 +1,75 @@
+
+@import "../../sass/abstracts/mixins";
+
+.PhonePage{
+	margin:0 auto;
+	width: 80%;
+	height: 85vh;
+	display: flex;
+	flex-direction: row;
+
+	@include respond(tab-port) {
+		flex-direction: column;
+	  }
+
+	&__imageContainer{
+		background-image: url("../../assets//img/iphoneimg.jpeg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 40%;
+
+		@include respond(tab-land) {
+			width: 50%;
+	
+		  }
+
+		@include respond(tab-port) {
+			margin: auto;
+			width: 70%;
+			height: 50%;
+		  }
+	}
+
+	&__infoContainer{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		gap: 10px;
+		margin: 20px 20px;
+		width: 60%;
+
+		@include respond(tab-land) {
+			width: 50%;
+		  }
+
+		@include respond(tab-port) {
+			width: 100%;
+			height: 50%;
+		  }
+
+
+		&__list{
+			margin-left: 20px;
+		}
+
+		&__buy{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-end ;
+
+			&__button{
+				width: 200px;
+				height: 50px;
+				text-align: center;
+				border-radius: 10px;
+				border-color: black;
+				background-color: transparent;
+				color: black;
+				cursor: pointer;
+
+			}
+		}
+	}
+}
