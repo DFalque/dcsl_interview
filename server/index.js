@@ -56,10 +56,10 @@ app.post("/addphone", upload.single("file"), async (req, res) => {
 	const file = req.file
 	console.log(file)
 	const result = await addPhone(req.body, file)
-	//if (!result) res.send("Error addphone function")
+	if (!result) res.send("Error addphone function")
 	res.send("phone added")
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
 })
