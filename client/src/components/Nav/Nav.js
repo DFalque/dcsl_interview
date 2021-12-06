@@ -11,15 +11,15 @@ const Nav = () => {
 			</div>
 			<div className="Nav__right">
 				<ul className="Nav__right__list">
-					<li>Colección</li>
-					<Link
-						to="/catalog"
-						style={{ textDecoration: "none", color: "black" }}
-					>
-						<li>Catálogo</li>
+					<Link to="/" className="Nav__right__list__link">
+						<li>Home</li>
 					</Link>
-					<li>Marcas</li>
-					<li>Idioma</li>
+					<Link to="/catalog" className="Nav__right__list__link">
+						<li>Catalog</li>
+					</Link>
+					<Link to="/catalog" className="Nav__right__list__link">
+						<li>Brand</li>
+					</Link>
 				</ul>
 			</div>
 		</nav>
