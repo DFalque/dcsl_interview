@@ -120,6 +120,6 @@ Some interface elements such as buttons should be extracted from the larger comp
 
 ### CI/CD
 
-You could have created a branch in github and connect netlify and heroku directly to the repository, it is something easy and a good practice to do in the projects, the decision not to do it is because sometimes there can be problems in the Netlify configuration that could delay the project. 
+I could have created a branch in github and connect netlify and heroku directly to the repository/branch, it is something easy and a good practice to do in the projects, the decision not to do it is because sometimes there can be problems in the Netlify configuration that could delay the project. 
 
 
