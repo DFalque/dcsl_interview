@@ -9,11 +9,10 @@
 	justify-content: space-around;
 	align-items: center;
 	margin-bottom: 20px;
-	background-color: $color-secondary-light;
+	background-color: $color-black_blue;
 
 	&__left{
 		width: 20%;
-		//height: 100%;
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
@@ -42,13 +41,24 @@
 
 	&__right{
 		width: 30%;
-		//height: 100%;
+
+		@include respond(phone) {
+			width: 50%;
+		}
 
 		&__list{
 			display: flex;
 			justify-content: space-around;
 			flex-direction: row;
 			list-style-type:none;
+
+			&__link{
+				text-decoration: none;
+				color: white;
+				font-size: 1.4rem;
+			}
+			
 		}
 	}
 }
+
