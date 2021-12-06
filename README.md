@@ -114,6 +114,10 @@ The shapes, colors, buttons used in the appalication have been designed to have 
 
 When we add a new mobile to the server currently we can not see the new mobile on the screen immediately, (at least in my case I have bad internet in the airbnb where I am xd), to solve it could be defined refetchs or directly modify the useState adding a new mobile in he Frontend. (Last one is not a good practice).
 
+### Add validation
+
+Add validation to forms
+
 ### LazyLoading
 
 In applications with a large number of data and images it can slow down the application, so it would be recommended to use the advantages offered by LazyLoading to improve the user experience and reduce loading times.
