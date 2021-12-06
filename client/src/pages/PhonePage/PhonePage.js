@@ -9,11 +9,15 @@ function PhonePage() {
 	const [dataPhone, setDataPhone] = useState({})
 	const [loading, setLoading] = useState(false)
 
-	useEffect(async () => {
+	async function getData() {
 		setLoading(true)
 		const data = await getPhone(id)
 		setDataPhone(data)
 		setLoading(false)
+	}
+
+	useEffect(() => {
+		getData()
 	}, [])
 
 	if (loading)
@@ -33,10 +37,7 @@ function PhonePage() {
 					<h2 className="heading-secondary">{dataPhone.manufacturer}</h2>
 					<h1 className="heading-primary--sub">{dataPhone.name}</h1>
 				</div>
-				<p className="paragraph__main">
-					Esto es una descripción del movil pero no sirve de nada pero es
-					interesante tenerla, debemos definir el espacio del texto
-				</p>
+				<p className="paragraph__main">{dataPhone.description}</p>
 				<ul className="PhonePage__infoContainer__list">
 					<li className="paragraph">{`RAM: ${dataPhone.ram}`}</li>
 					<li className="paragraph">{`CPU: ${dataPhone.processor}`}</li>
