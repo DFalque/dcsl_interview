@@ -4,26 +4,17 @@ const mongoose = require("mongoose")
 require("dotenv").config({ path: ".env" })
 var cors = require("cors")
 const app = express()
+var multer = require("multer")
+var upload = multer()
 const port = 3000
 
+var bodyParser = require("body-parser")
+
 //FUNCTIONS
-const { getAllPhones, findPhone } = require("./controller/phone")
+const { getAllPhones, findPhone, addPhone } = require("./controller/phone")
 
 // MIDDLEWARE
-app.use((req, res, next) => {
-	cors()
-	next()
-})
-app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*")
-	res.header(
-		"Access-Control-Allow-Headers",
-		"Origin, X-Requested-With, Content-Type, Accept"
-	)
-	next()
-})
-
-app.use(express.json())
+app.use(cors())
 
 //DATABASE
 
@@ -55,21 +46,18 @@ app.get("/phones", async (req, res) => {
 
 app.get("/getphone/", async (req, res) => {
 	const { id } = req.query
-	console.log(id)
 	const data = await findPhone(id)
-	console.log(data)
 	res.send(data)
 })
 
 // POSTS
 
-app.post("/addphone", (req, res) => {
-	//console.log(req.body)
-	res.send("esto es un telefono")
-})
-
-app.post("/addphones", (req, res) => {
-	res.send("esto es un telefono")
+app.post("/addphone", upload.single("file"), async (req, res) => {
+	const file = req.file
+	console.log(file)
+	const result = await addPhone(req.body, file)
+	//if (!result) res.send("Error addphone function")
+	res.send("phone added")
 })
 
 app.listen(port, () => {
