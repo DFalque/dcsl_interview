@@ -108,7 +108,11 @@ The shapes, colors, buttons used in the appalication have been designed to have 
   
   (it is true that there is a conflict in the contrast of the logo and the Nav )
 
-## OObservations, recommendations and improvements
+## Observations, recommendations and improvements
+
+### Refetch phones
+
+When we add a new mobile to the server currently we can not see the new mobile on the screen immediately, (at least in my case I have bad internet in the airbnb where I am xd), to solve it could be defined refetchs or directly modify the useState adding a new mobile in he Frontend. (Last one is not a good practice).
 
 ### LazyLoading
 
@@ -120,6 +124,6 @@ Some interface elements such as buttons should be extracted from the larger comp
 
 ### CI/CD
 
-You could have created a branch in github and connect netlify and heroku directly to the repository, it is something easy and a good practice to do in the projects, the decision not to do it is because sometimes there can be problems in the Netlify configuration that could delay the project. 
+I could have created a branch in github and connect netlify and heroku directly to the repository/branch, it is something easy and a good practice to do in the projects, the decision not to do it is because sometimes there can be problems in the Netlify configuration that could delay the project. 
 
 
