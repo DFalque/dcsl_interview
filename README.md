@@ -108,7 +108,7 @@ The shapes, colors, buttons used in the appalication have been designed to have 
   
   (it is true that there is a conflict in the contrast of the logo and the Nav )
 
-## OObservations, recommendations and improvements
+## Observations, recommendations and improvements
 
 ### LazyLoading
 
