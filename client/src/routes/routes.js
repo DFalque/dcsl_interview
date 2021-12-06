@@ -1,6 +1,6 @@
 import Home from "../pages/Home/Home"
 import BasicLayout from "../layout/BasicLayout"
-import CataloguePage from "../pages/CataloguePage/CataloguePage"
+import CatalogPage from "../pages/CatalogPage"
 import PhonePage from "../pages/PhonePage/PhonePage"
 
 const route = [
@@ -13,7 +13,7 @@ const route = [
 	{
 		path: "/catalog",
 		layout: BasicLayout,
-		component: CataloguePage,
+		component: CatalogPage,
 		exact: true,
 	},
 	{
