@@ -20,7 +20,7 @@ const Cards = (props) => {
 				<p className="Card__info--name">{name}</p>
 				<p className="paragraph__small"> {description}</p>
 				<div className="Card__info__price">
-					<p className="Card__info__price--button">Comprar</p>
+					<p className="Card__info__price--button">Buy</p>
 					<p className="Card__info__price--cost">
 						{price}
 						<span>€</span>
