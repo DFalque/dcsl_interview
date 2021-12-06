@@ -2,10 +2,9 @@
 @import "../../sass/abstracts/mixins";
 
 .Card{
-	margin:0 auto;
+	margin: auto;
 	display: flex;
     flex-direction: column;
-    //width: 80%;
     max-width: 210px;
 	min-width: 210px;
     height: 320px;
@@ -17,9 +16,7 @@
 	border-color: rgba(0, 0, 0, 0.1);
 	background-color: white;
 	text-decoration: none;
-	color: inherit;
-    text-decoration: inherit;
-    //transition: all ease 0.5s;
+
 	
 	
 	@include respond(tab-land) {
@@ -66,8 +63,13 @@
 			color: $color-black_blue;
 			box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1,);
 			border-radius: 10px;
-			font-size: 9px;
+			font-size: 0.9rem;
 			font-weight: bold;
+
+			@include respond(phone) {
+				padding: 1px 5px;
+
+			}
 		}
 
 		&--name{

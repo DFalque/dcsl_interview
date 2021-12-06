@@ -2,17 +2,7 @@ import { Link } from "react-router-dom"
 import "./Card.scss"
 
 const Cards = (props) => {
-	const {
-		_id,
-		name,
-		description,
-		manufacturer,
-		price,
-		ram,
-		screen,
-		imageFileName,
-	} = props
-	console.log(props)
+	const { _id, name, description, manufacturer, price, imageFileName } = props
 	return (
 		<Link
 			to={`/phone/${_id}`}
