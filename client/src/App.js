@@ -1,8 +1,6 @@
 // LIBRARIES
 import { useEffect, useState } from "react"
 // COMPONENTS
-import Nav from "./components/Nav"
-import Card from "./components/Card"
 import Navigation from "./routes/Navigation"
 //SERVICES
 import getAllPhones from "./services/getAllPhones"
