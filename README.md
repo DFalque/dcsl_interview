@@ -26,7 +26,7 @@ You have two options:
 8. npm install
 9. run npm start
 
-* Enter the following link
+* Click on the following link
 
 The client has been uploaded to Netlify and the server to Heroku.
 
