@@ -19,6 +19,8 @@ const AddPhoneForm = () => {
 		}
 	}
 
+	const keyForm = Object.keys(form)
+
 	const onDrop = (e) => {
 		const file = e.target.files[0]
 		setFileUpload(file)
@@ -26,26 +28,20 @@ const AddPhoneForm = () => {
 
 	function handleChange(event, type) {
 		setForm({ ...form, [type]: event.target.value })
-		console.log(`Esta cambiado el ${type}: ${form[type]}`)
+		//console.log(`Esta cambiado el ${type}: ${form[type]}`)
 	}
 
 	const onPublish = async () => {
-		const phone = new FormData()
-		phone.append("name", form.name)
-		phone.append("manufacturer", form.manufacturer)
-		phone.append("description", form.description)
-		phone.append("color", form.color)
-		phone.append("price", form.price)
-		phone.append("screen", form.screen)
-		phone.append("processor", form.processor)
-		phone.append("ram", form.ram)
-		phone.append("file", fileUpload)
+		const phoneForm = new FormData()
+		keyForm.forEach((element) => {
+			phoneForm.append(element, form[element])
+		})
+		phoneForm.append("file", fileUpload)
 		try {
-			const result = await postPhone(phone)
-			console.log("await realizado")
+			const result = await postPhone(phoneForm)
 			const { data } = result
 			if (!data.publish.status) {
-				console.warn("Error en")
+				console.warn("Error en la petición")
 			}
 		} catch (error) {
 			console.log(error)
@@ -58,70 +54,19 @@ const AddPhoneForm = () => {
 			onSubmit={onPublish}
 			encType="multipart/form-data"
 		>
-			<label className="AddPhoneForm__label">
-				Name:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "name")}
-				/>
-			</label>
-			<label className="AddPhoneForm__label">
-				Manufacturer:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "manufacturer")}
-				/>
-			</label>
-			<label className="AddPhoneForm__label">
-				Description:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "description")}
-				/>
-			</label>
-			<label className="AddPhoneForm__label">
-				Color:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "color")}
-				/>
-			</label>
-			<label className="AddPhoneForm__label">
-				Price:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "price")}
-				/>
-			</label>
-			<label className="AddPhoneForm__label">
-				Screen:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "screen")}
-				/>
-			</label>
-			<label className="AddPhoneForm__label">
-				Processor:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "processor")}
-				/>
-			</label>
-			<label className="AddPhoneForm__label">
-				Ram:
-				<input
-					className="AddPhoneForm__label__input"
-					type="text"
-					onChange={(event) => handleChange(event, "ram")}
-				/>
-			</label>
+			{keyForm.map((element, index) => {
+				return (
+					<label key={index} className="AddPhoneForm__label">
+						{`${element}:`}
+						<input
+							className="AddPhoneForm__label__input"
+							type="text"
+							onChange={(event) => handleChange(event, element)}
+						/>
+					</label>
+				)
+			})}
+
 			<input
 				className="AddPhoneForm__addImage"
 				type="file"
