@@ -60,11 +60,16 @@ const AddPhoneForm = () => {
 		>
 			<label className="AddPhoneForm__label">
 				Name:
-				<input type="text" onChange={(event) => handleChange(event, "name")} />
+				<input
+					className="AddPhoneForm__label__input"
+					type="text"
+					onChange={(event) => handleChange(event, "name")}
+				/>
 			</label>
 			<label className="AddPhoneForm__label">
 				Manufacturer:
 				<input
+					className="AddPhoneForm__label__input"
 					type="text"
 					onChange={(event) => handleChange(event, "manufacturer")}
 				/>
@@ -72,37 +77,56 @@ const AddPhoneForm = () => {
 			<label className="AddPhoneForm__label">
 				Description:
 				<input
+					className="AddPhoneForm__label__input"
 					type="text"
 					onChange={(event) => handleChange(event, "description")}
 				/>
 			</label>
 			<label className="AddPhoneForm__label">
-				color:
-				<input type="text" onChange={(event) => handleChange(event, "color")} />
-			</label>
-			<label className="AddPhoneForm__label">
-				price:
-				<input type="text" onChange={(event) => handleChange(event, "price")} />
-			</label>
-			<label className="AddPhoneForm__label">
-				screen:
+				Color:
 				<input
+					className="AddPhoneForm__label__input"
+					type="text"
+					onChange={(event) => handleChange(event, "color")}
+				/>
+			</label>
+			<label className="AddPhoneForm__label">
+				Price:
+				<input
+					className="AddPhoneForm__label__input"
+					type="text"
+					onChange={(event) => handleChange(event, "price")}
+				/>
+			</label>
+			<label className="AddPhoneForm__label">
+				Screen:
+				<input
+					className="AddPhoneForm__label__input"
 					type="text"
 					onChange={(event) => handleChange(event, "screen")}
 				/>
 			</label>
 			<label className="AddPhoneForm__label">
-				processor:
+				Processor:
 				<input
+					className="AddPhoneForm__label__input"
 					type="text"
 					onChange={(event) => handleChange(event, "processor")}
 				/>
 			</label>
 			<label className="AddPhoneForm__label">
-				ram:
-				<input type="text" onChange={(event) => handleChange(event, "ram")} />
+				Ram:
+				<input
+					className="AddPhoneForm__label__input"
+					type="text"
+					onChange={(event) => handleChange(event, "ram")}
+				/>
 			</label>
-			<input type="file" onChange={(e) => onDrop(e)} />
+			<input
+				className="AddPhoneForm__addImage"
+				type="file"
+				onChange={(e) => onDrop(e)}
+			/>
 			<input
 				className="AddPhoneForm__submit"
 				type="submit"

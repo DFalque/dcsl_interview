@@ -11,7 +11,9 @@ const ModalSimple = (props) => {
 	return (
 		<Modal open={show} onClose={onClose} className="ModalSimple">
 			<div className="ModalSimple__container">
-				<h2>{title}</h2>
+				<div className="ModalSimple__container__header">
+					<h2 className="heading-primary--sub">{title}</h2>
+				</div>
 				{children}
 			</div>
 		</Modal>

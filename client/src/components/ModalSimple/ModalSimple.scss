@@ -1,3 +1,5 @@
+@import "../../sass//abstracts/mixins";
+
 .ModalSimple{
 	display: flex;
 	flex-direction: column;
@@ -9,10 +11,22 @@
 		margin: auto;
 		position: relative;
 		width: 50%;
+		max-width: 500px;
 		height: 50%;
-		//min-height: 500px;
 		background-color: white;
 		border: 1px solid grey;
-		border-radius: 10px;
+		border-radius: 15px;
+		overflow: hidden;
+
+		@include respond(phone) {
+			width: 70%;
+			height: 70%;
+
+		}
+
+		&__header{
+			text-align: center;
+			margin: 20px 0;
+		}
 	}
 }
