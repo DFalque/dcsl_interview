@@ -40,8 +40,12 @@ const CatalogPage = () => {
 
 	return (
 		<>
+			<Header
+				click={handlerModal}
+				titleButton={"+ Add"}
+				title={"Our Products"}
+			/>
 			<div className="CatalogPage">
-				<Header click={handlerModal} />
 				{loading ? (
 					<LoadingData />
 				) : (
