@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import ButtonAction from "../atoms/buttons/ButtonAction/ButtonAction"
 import "./Card.scss"
 
 const Cards = (props) => {
@@ -20,7 +21,7 @@ const Cards = (props) => {
 				<p className="Card__info--name">{name}</p>
 				<p className="paragraph__small"> {description}</p>
 				<div className="Card__info__price">
-					<p className="Card__info__price--button">Buy</p>
+					<ButtonAction text="Buy" type="main" />
 					<p className="Card__info__price--cost">
 						{price}
 						<span>€</span>
