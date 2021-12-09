@@ -7,11 +7,14 @@ const app = express()
 var multer = require("multer")
 var upload = multer()
 const port = 4000
-
-var bodyParser = require("body-parser")
-
 //FUNCTIONS
-const { getAllPhones, findPhone, addPhone } = require("./controller/phone")
+const {
+	getAllPhones,
+	findPhone,
+	addPhone,
+	deletePhone,
+	editPhone,
+} = require("./controller/phone")
 
 // MIDDLEWARE
 app.use(cors())
@@ -54,11 +57,29 @@ app.get("/getphone/", async (req, res) => {
 
 app.post("/addphone", upload.single("file"), async (req, res) => {
 	const file = req.file
-	console.log(file)
 	const result = await addPhone(req.body, file)
 	if (!result) res.send("Error addphone function")
 	res.send("phone added")
 })
+
+app.post("/editphone/", upload.single("file"), async (req, res) => {
+	const { id } = req.query
+	console.log(req.file)
+	const file = req.file
+	const result = await editPhone(req.body, file, id)
+	if (!result) res.send("Error addphone function")
+	res.send(result)
+})
+
+// OTHERS
+app.delete("/deletephone/", async (req, res) => {
+	const { id } = req.query
+	const result = await deletePhone(id)
+	if (!result) res.send("Error delete info function")
+	res.send("phone deleted")
+})
+
+// LISTEN
 
 app.listen(process.env.PORT || port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)

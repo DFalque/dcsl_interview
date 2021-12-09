@@ -1,8 +1,8 @@
 const Phone = require("../model/phone")
 const awsUploadIMage = require("../utils/aws-upload-images")
 const { v4: uuidv4 } = require("uuid")
-var fs = require("fs")
 const { Readable } = require("stream")
+const CreateFile = require("../services/createFile")
 
 async function getAllPhones() {
 	const phones = await Phone.find()
@@ -16,17 +16,12 @@ async function findPhone(id) {
 }
 
 async function addPhone(req, file) {
-	console.log("Estamos aqui 1")
 	const { name, manufacturer, description, color } = req
 	const { price, screen, ram } = req
-	console.log("Estamos aqui 2")
 	const { mimetype, buffer } = await file
 	const extension = mimetype.split("/")[1]
 	const fileName = `img/${uuidv4()}.${extension}`
-	//const fileData = createReadStream()
-	//const fileData = fs.createReadStream(buffer)
 	const stream = Readable.from(buffer)
-	console.log("Estamos aqui 3")
 	const result = await awsUploadIMage(stream, fileName)
 
 	const newPhone = {
@@ -49,4 +44,42 @@ async function addPhone(req, file) {
 		return false
 	}
 }
-module.exports = { addPhone, getAllPhones, findPhone }
+
+async function deletePhone(id) {
+	try {
+		const phone = await Phone.findOneAndDelete({ _id: id })
+		if (!phone) throw new Error("Phone not Found")
+		return phone
+	} catch (error) {
+		console.log(error)
+		return false
+	}
+}
+
+async function editPhone(req, file, id) {
+	const phone = await Phone.findOne({ _id: id })
+	if (!phone) throw new Error("Phone not Found")
+
+	const { name, manufacturer, description, color } = req
+	const { price, screen, ram } = req
+
+	const fileResult = await CreateFile(file)
+
+	await Phone.findByIdAndUpdate(
+		{ _id: id },
+		{
+			name: name || phone.name,
+			manufacturer: manufacturer || phone.manufacturer,
+			description: description || phone.description,
+			color: color || phone.color,
+			price: price || phone.price,
+			imageFileName: fileResult || phone.imageFileName,
+			screen: screen || phone.screen,
+			ram: ram || phone.ram,
+		}
+	)
+
+	return true
+}
+
+module.exports = { addPhone, getAllPhones, findPhone, deletePhone, editPhone }
