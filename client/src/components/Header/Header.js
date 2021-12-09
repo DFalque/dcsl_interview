@@ -1,13 +1,12 @@
+import ButtonAction from "../atoms/buttons/ButtonAction/ButtonAction"
 import "./Header.scss"
 function Header(props) {
-	const { click } = props
+	const { click, title, titleButton } = props
 
 	return (
 		<div className="Header">
-			<h1 className="heading-primary--sub">Our Products</h1>
-			<button onClick={() => click()} className="Header__button">
-				+ Add
-			</button>
+			<h1 className="heading-primary--sub">{title}</h1>
+			<ButtonAction click={click} text={titleButton} type="sub" />
 		</div>
 	)
 }

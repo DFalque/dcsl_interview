@@ -8,22 +8,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 50px;
 
     @include respond(phone) {
       width: 90%;      
       }
-
-
-
-    &__button{
-      padding: 5px 15px;
-      background-color: $color-grey-light-2;
-      border-radius: 20px;
-      text-decoration: none;
-      border-color: $color-grey-light-2;
-      color: $color-primary;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
   }
