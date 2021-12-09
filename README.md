@@ -10,11 +10,40 @@
 
 This document explains how to run the application, the libraries and tools used, design decisions and finally, due to the limited time, a section of recommendations has been introduced to improve the application in future versions.
 
+About the app:
+
+* There is a folder for the client and another one for the server.
+
+* The server has a controller where the functions that connect with the databases are hosted.
+
+* The Models folder contains the mobile data schema.
+
+* The server also has configuration folders for AWS and MongoDB.
+
+* In the index file of the server are the APi requests.
+
+* The application has 3 pages, a home page, a page that shows the catalog and another one that shows the details of a selected phone.
+
+* A common layout is used for all pages.
+
+* The information of the mobiles is hosted in databases.
+
+* There is a Sass folder for general style configuration.
+
+* Each component contains its own javascript code and sass file.
+
+* The application allows to insert, delete and edit the mobiles.
+
+* In the services folder are the calls to the server API.
+
+* Inside the components folder there is an atoms folder with small components.
+
+
 ## How to run the project
 
 You have two options:
 
-* Clone the repository.
+* Clone the repository. (recommended)
 
 1. Clone the repository
 2. Go to the project directory
@@ -26,11 +55,11 @@ You have two options:
 8. npm install
 9. run npm start
 
-* Click on the following link
+* Click on the following link (no recommended)
 
 The client has been uploaded to Netlify and the server to Heroku.
 
-Note: In Netlify you must be careful with the browser refresh, because netlify does not read the paths properly if the domain is not has a good configuration.
+`Note: In Netlify you must be careful with the browser refresh and API calls, because netlify does not read the paths properly if the domain is not has a good configuration. I could fix this.`
 
 1. The client address is: https://inspiring-elion-3b1d77.netlify.app
 2. The server address is: https://interview-ireland.herokuapp.com/allphone
@@ -112,7 +141,7 @@ The shapes, colors, buttons used in the appalication have been designed to have 
 
 ### Refetch phones
 
-When we add a new mobile to the server currently we can not see the new mobile on the screen immediately, (at least in my case I have bad internet in the airbnb where I am xd), to solve it could be defined refetchs or directly modify the useState adding a new mobile in he Frontend. (Last one is not a good practice).
+When we add a new mobile to the server currently we can not see the new mobile on the screen immediately, (at least in my case I have bad internet in the airbnb where I am right now xd), to solve it could be defined refetchs or directly modify the useState adding a new mobile in he Frontend. (Last one is not a good practice).
 
 ### Add validation
 
@@ -124,7 +153,7 @@ In applications with a large number of data and images it can slow down the appl
 
 ### UI Components
 
-Some interface elements such as buttons should be extracted from the larger components, create a sass folder of components, create a specific component for these elements or create an atomos folder to enter this type of elements. Personally I am in favor of the latter practice.
+Some interface elements such as buttons should be extracted from the larger components, create a sass folder of components, create a specific component for these elements or create an atoms folder to enter this type of elements.
 
 ### CI/CD
 
