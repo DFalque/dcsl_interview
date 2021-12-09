@@ -54,14 +54,14 @@ const AddPhoneForm = () => {
 			onSubmit={onPublish}
 			encType="multipart/form-data"
 		>
-			{keyForm.map((element, index) => {
+			{keyForm.map((elementForm, index) => {
 				return (
 					<label key={index} className="AddPhoneForm__label">
-						{`${element}:`}
+						{`${elementForm}:`}
 						<input
 							className="AddPhoneForm__label__input"
 							type="text"
-							onChange={(event) => handleChange(event, element)}
+							onChange={(event) => handleChange(event, elementForm)}
 						/>
 					</label>
 				)
