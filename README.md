@@ -14,7 +14,7 @@ About the app:
 
 * There is a folder for the client and another one for the server.
 
-* The server has a controller where the functions that connect with the databases are hosted.
+* The server has a controller where the functions connect with the databases.
 
 * The Models folder contains the mobile data schema.
 
